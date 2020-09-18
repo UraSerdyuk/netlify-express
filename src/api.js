@@ -9,7 +9,7 @@ app.use(cors());
 const router = express.Router();
 
 // /api/auth/register           registration
-router.post("/auth/register", async (req, res) => {
+router.get("/auth/register", async (req, res) => {
   res.json({
     asljasiojf: "/register",
   });
@@ -44,7 +44,7 @@ mongoose.connect(
   "mongodb+srv://cb8593bc:Racing-Bike-2000@cluster0.kmhay.gcp.mongodb.net/test1?retryWrites=true&w=majority"
 );
 
-app.use(`/api`, router);
+app.use(`/.netlify/functions/api`, router);
 
 module.exports = app;
 module.exports.handler = serverless(app);
