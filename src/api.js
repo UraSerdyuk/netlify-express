@@ -79,16 +79,15 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
+const User = require("../models/User");
 
 const app = express();
 app.use(cors());
 const router = express.Router();
 
-// const User = require("../models/User");
-
 router.get("/", (req, res) => {
   res.json({
-    hello: "hi+-!",
+    hello: "hi+-___!",
   });
 });
 
