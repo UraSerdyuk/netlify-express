@@ -74,7 +74,7 @@
 
 const express = require("express");
 const serverless = require("serverless-http");
-const cors = require("cors");
+// const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -93,7 +93,7 @@ const schema = new Schema({
 // const User = model("User", schema);
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 const router = express.Router();
 
 router.get("/", (req, res) => {
