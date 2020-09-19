@@ -76,15 +76,15 @@ const express = require("express");
 const serverless = require("serverless-http");
 const cors = require("cors");
 const mongoose = require("mongoose");
-// const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
-// const { check, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { check, validationResult } = require("express-validator");
 
 const app = express();
 app.use(cors());
 const router = express.Router();
 
-const User = require("../models/User");
+// const User = require("../models/User");
 
 router.get("/", (req, res) => {
   res.json({
