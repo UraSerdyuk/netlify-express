@@ -88,7 +88,7 @@ router.post(
         return res.status(400).json({ message: "Пользователь не найден" });
       }
 
-      const isMatch = password === user.password;
+      const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
         return res
@@ -100,12 +100,7 @@ router.post(
         expiresIn: "1h",
       });
 
-      res.json({
-        token,
-        userId: user.id,
-        user: user,
-        password,
-      });
+      res.json({ token, userId: user.id });
     } catch (e) {
       res
         .status(500)
