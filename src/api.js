@@ -82,7 +82,12 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin:
+      "https://web.postman.co/build/workspace/My-Workspace~d5fa60a3-7ffb-431d-8280-ead788f9a4b1",
+  })
+);
 const router = express.Router();
 
 router.get("/", (req, res) => {
