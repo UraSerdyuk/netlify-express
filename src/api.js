@@ -76,14 +76,17 @@ const express = require("express");
 const serverless = require("serverless-http");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { check, validationResult } = require("express-validator");
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+// const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 
 const app = express();
+app.use(express.json({ extended: true }));
 app.use(cors());
 const router = express.Router();
+
+app.use("/.netlify/functions/api/auth", require("../routes/auth.routes"));
 
 router.get("/", (req, res) => {
   res.json({
