@@ -76,10 +76,10 @@ const express = require("express");
 const serverless = require("serverless-http");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { check, validationResult } = require("express-validator");
-const User = require("../models/User");
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+// const { check, validationResult } = require("express-validator");
+// const User = require("../models/User");
 
 const app = express();
 app.use(cors());
