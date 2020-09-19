@@ -74,26 +74,15 @@
 
 const express = require("express");
 const serverless = require("serverless-http");
-// const cors = require("cors");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
-// const User = require("../models/User");
-
-const { Schema, model, Types } = require("mongoose");
-
-const schema = new Schema({
-  firstName: { type: String, required },
-  lastName: { type: String, required },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-});
-
-// const User = model("User", schema);
+const User = require("../models/User");
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 const router = express.Router();
 
 router.get("/", (req, res) => {
