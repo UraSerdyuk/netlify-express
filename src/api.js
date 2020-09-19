@@ -79,15 +79,21 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
-const User = require("../models/User");
+// const User = require("../models/User");
+
+const { Schema, model, Types } = require("mongoose");
+
+const schema = new Schema({
+  firstName: { type: String, required },
+  lastName: { type: String, required },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
+
+const User = model("User", schema);
 
 const app = express();
-app.use(
-  cors({
-    origin:
-      "https://web.postman.co/build/workspace/My-Workspace~d5fa60a3-7ffb-431d-8280-ead788f9a4b1",
-  })
-);
+app.use(cors());
 const router = express.Router();
 
 router.get("/", (req, res) => {
