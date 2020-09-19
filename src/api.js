@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 mongoose.connect(
-  "mongodb+srv://cb8593bc:Racing-Bike-2000@cluster0.kmhay.gcp.mongodb.net/test1?retryWrites=true&w=majority"
+  "mongodb+srv://cb8593bc:Racing-Bike-2000@cluster0.kmhay.gcp.mongodb.net/wedding-pictures?retryWrites=true&w=majority"
 );
 
 app.use(`/.netlify/functions/api`, router);
