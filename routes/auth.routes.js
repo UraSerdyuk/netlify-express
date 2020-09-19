@@ -13,8 +13,12 @@ router.post(
     check("password", "Минимальная длина пароля 6 символов").isLength({
       min: 6,
     }),
-    check("firstName", "Неможе бути порожнім").isEmpty(),
-    check("lastName", "Неможе бути порожнім").isEmpty(),
+    check("firstName", "Неможе бути порожнім").isLength({
+      min: 1,
+    }),
+    check("lastName", "Неможе бути порожнім").isLength({
+      min: 1,
+    }),
   ],
   async (req, res) => {
     try {
