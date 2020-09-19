@@ -43,10 +43,10 @@ router.post(
 
       //   const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({
-        firstName,
-        lastName,
-        email,
-        password,
+        firstName: "test",
+        lastName: "ewwr",
+        email: "2er2r2r",
+        password: "ewrwerwe",
       });
 
       await user.save();
