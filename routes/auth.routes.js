@@ -6,6 +6,10 @@ const User = require("../models/User");
 const router = Router();
 
 // /api/auth/register
+router.post("/test", (req, res) => {
+  res.json({ data: req.body });
+});
+
 router.post(
   "/register",
   [
@@ -41,12 +45,12 @@ router.post(
           .json({ message: "Такой пользователь уже существует" });
       }
 
-      //   const hashedPassword = await bcrypt.hash(password, 12);
+      const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({
-        firstName: "test",
-        lastName: "ewwr",
-        email: "2er2r2r",
-        password: "ewrwerwe",
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: hashedPassword,
       });
 
       await user.save();
