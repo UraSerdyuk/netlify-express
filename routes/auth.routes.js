@@ -41,12 +41,12 @@ router.post(
           .json({ message: "Такой пользователь уже существует" });
       }
 
-      const hashedPassword = await bcrypt.hash(password, 12);
+      //   const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({
-        email,
-        password: hashedPassword,
         firstName,
         lastName,
+        email,
+        password,
       });
 
       await user.save();
