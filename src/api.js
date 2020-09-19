@@ -1,7 +1,6 @@
 // const express = require("express");
 // const serverless = require("serverless-http");
 // const cors = require("cors");
-// const mongoose = require("mongoose");
 
 // const bcrypt = require("bcryptjs");
 // const jwt = require("jsonwebtoken");
@@ -86,18 +85,10 @@
 //   });
 // });
 
-// // mongoose.connect(
-// //   "mongodb+srv://cb8593bc:Racing-Bike-2000@cluster0.kmhay.gcp.mongodb.net/test1?retryWrites=true&w=majority"
-// // );
-
-// app.use(`/.netlify/functions/api`, router);
-
-// module.exports = app;
-// module.exports.handler = serverless(app);
-
 const express = require("express");
 const serverless = require("serverless-http");
 const cors = require("cors");
+const mongoose = require("mongoose");
 
 const app = express();
 app.use(cors());
@@ -108,6 +99,10 @@ router.get("/", (req, res) => {
     hello: "hi!",
   });
 });
+
+mongoose.connect(
+  "mongodb+srv://cb8593bc:Racing-Bike-2000@cluster0.kmhay.gcp.mongodb.net/test1?retryWrites=true&w=majority"
+);
 
 app.use(`/.netlify/functions/api`, router);
 
