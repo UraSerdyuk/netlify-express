@@ -90,7 +90,7 @@ const schema = new Schema({
   password: { type: String, required: true },
 });
 
-const User = model("User", schema);
+// const User = model("User", schema);
 
 const app = express();
 app.use(cors());
