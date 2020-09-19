@@ -81,7 +81,7 @@ const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 // const User = require("../models/User");
 
-// const { Schema, model, Types } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 // const schema = new Schema({
 //   firstName: { type: String, required },
