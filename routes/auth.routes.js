@@ -7,12 +7,14 @@ const router = Router();
 
 // // // /api/auth/register           registration
 router.post(
-  "/auth/register",
+  "/register",
   [
     check("email", "Некорректный email").isEmail(),
     check("password", "Минимальная длина пароля 6 символов").isLength({
       min: 6,
     }),
+    check("firstName", "Неможе бути порожнім").isEmpty(),
+    check("lastName", "Неможе бути порожнім").isEmpty(),
   ],
   async (req, res) => {
     try {
