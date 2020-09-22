@@ -7,6 +7,7 @@ const app = express();
 
 app.use(express.json({ extended: true }));
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 const router = express.Router();
 
 app.use("/.netlify/functions/api/auth", require("../routes/auth.routes"));

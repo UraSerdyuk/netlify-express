@@ -1,19 +1,47 @@
 const { Router } = require("express");
-var multer = require("multer");
 var fs = require("file-system");
+const { regType } = require("../utils/constants");
+const Image = require("../models/Image");
+const User = require("../models/User");
 const router = Router();
 
-// var upload = multer({ dest: "uploads/" });
 //  /api/upload/img
+router.post("/img", async (req, res) => {
+  try {
+    const data = JSON.parse(req.body.toString());
+    //create folder
+    const dir = `uploads/${data.userId}`;
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+    const filepath = `uploads/${data.userId}/${[data.name]}`;
+    console.log("filepath", filepath);
+    const dataNew = data.base64.replace(regType[data.base64Type], "");
+    const buf = new Buffer(dataNew, "base64");
+    fs.writeFileSync(filepath, buf, (err) => {
+      if (err) throw err;
+      console.log("The file was succesfully saved!");
+    });
 
-router.post("/img", function (req, res) {
-  console.log("req.file", req);
-  // req.file is the `avatar` file
-  // req.body will hold the text fields, if there were any
+    const links = await User.findById(data.userId);
+
+    console.log("OWNER", links);
+
+    const image = new Image({
+      // href: "httptest",
+      name: data.name,
+      owner: data.userId,
+    });
+
+    await image.save();
+
+    res.status(201).json({ image });
+  } catch (error) {
+    res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
+  }
 });
 
 router.get("/img", (req, res) => {
-  // fs.writeFile("uploads/test.txt", "some ", function (err) {});
   res.json({
     hello: "img+-___{}!",
   });
