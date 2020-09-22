@@ -1,0 +1,5 @@
+{
+  "jwtSecret": "путінхуйло",
+  "mongoUri": "mongodb+srv://cb8593bc:Racing-Bike-2000@cluster0.kmhay.gcp.mongodb.net/wedding-pictures?retryWrites=true&w=majority",
+  "baseUrl": ""
+}
