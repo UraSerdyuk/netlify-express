@@ -23,9 +23,9 @@ router.post("/img", async (req, res) => {
       console.log("The file was succesfully saved!");
     });
 
-    const links = await User.findById(data.userId);
+    // const links = await User.findById(data.userId);
 
-    console.log("OWNER", links);
+    // console.log("OWNER", links);
 
     const image = new Image({
       // href: "httptest",
@@ -41,10 +41,13 @@ router.post("/img", async (req, res) => {
   }
 });
 
-router.get("/img", (req, res) => {
-  res.json({
-    hello: "img+-___{}!",
-  });
+router.get("/img", async (req, res) => {
+  try {
+    const links = await Image.find({ owner: "5f6a69c127b3f2292c2f6380" });
+    res.json(links);
+  } catch (e) {
+    res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
+  }
 });
 
 module.exports = router;
