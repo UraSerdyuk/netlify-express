@@ -5,7 +5,7 @@ const schema = new Schema({
   lastName: String,
   email: String,
   password: String,
-  images: [{ type: Types.ObjectId, ref: "Image" }],
+  // images: [{ type: Types.ObjectId, ref: "Image" }],
 });
 
 module.exports = model("User", schema);
