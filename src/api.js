@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.use(express.static(path.join(__dirname, "public")));
 
-// app.use("/.netlify/functions/api/auth", require("../routes/auth.routes"));
+app.use("/.netlify/functions/api/auth", require("../routes/auth.routes"));
 // app.use("/.netlify/functions/api/upload", require("../routes/upload.routes"));
 
 router.get("/", (req, res) => {
