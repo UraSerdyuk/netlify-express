@@ -1,7 +1,7 @@
 const { Schema, model, Types } = require("mongoose");
 
 const schema = new Schema({
-  //   href: String,
+  href: String,
   name: String,
   owner: { type: Types.ObjectId, ref: "User" },
 });

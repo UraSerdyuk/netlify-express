@@ -28,7 +28,7 @@ router.post("/img", async (req, res) => {
     // console.log("OWNER", links);
 
     const image = new Image({
-      // href: "httptest",
+      href: filepath,
       name: data.name,
       owner: data.userId,
     });
