@@ -22,11 +22,11 @@ router.get("/", (req, res) => {
   });
 });
 
-mongoose.connect(config.get("mongoUri"), {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+// mongoose.connect(config.get("mongoUri"), {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+// });
 
 app.use(`/.netlify/functions/api`, router);
 
